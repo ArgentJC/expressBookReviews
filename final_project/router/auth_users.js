@@ -37,7 +37,7 @@ regd_users.post("/login", (req, res) => {
         req.session.authorization = {
             accessToken, username
         }
-        return res.status(200).send("Sesión iniciada correctamente");
+        return res.status(200).json({ message: "Sesión iniciada correctamente", token: accessToken});
     }
     console.log(`El usuario con username: ${username} y contraseña: ${password} no es válido`);
     return res.status(400).json({ message: "Usuario no válido" });
